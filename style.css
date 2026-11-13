@@ -1,0 +1,344 @@
+:root {
+  --olive-moss: #5D593C;
+  --linden-glow: #aa9d48;
+  --dusty-rose: #D29E9E;
+  --rosewood: #904d49;
+  --warm-sand: #cbb39b;
+  --deep-espresso: #3C2F2F;
+  --misty-blue: #A9BCC1;
+  --cream-paper: #F7F3EE;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--deep-espresso);
+  color: var(--cream-paper);
+  overflow-x: hidden;
+}
+
+/* ГЛАВНЫЙ ЭКРАН */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 5% 24px;
+  isolation: isolate;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(60, 47, 47, 0.25) 0%,
+    rgba(60, 47, 47, 0.12) 45%,
+    rgba(60, 47, 47, 0.35) 100%
+  );
+  z-index: -1;
+}
+
+/* ВЕРХНЯЯ НАВИГАЦИЯ */
+.hero-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 25px;
+  padding-bottom: 12px;
+}
+
+.header-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.header-nav a {
+  color: var(--cream-paper);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75);
+  transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: var(--dusty-rose);
+}
+
+/* БЛОК С НАЗВАНИЕМ И БОКОВЫМИ ВЕНЗЕЛЯМИ */
+.brand-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 22px; /* Опускает название ниже от верхнего края */
+  margin-bottom: 10px;
+}
+
+.brand-logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3.2rem, 5.2vw, 4.7rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  color: #FFFFFF;
+  -webkit-text-stroke: 0.7px rgba(255, 255, 255, 0.9);
+  text-shadow: 
+    0 3px 14px rgba(28, 20, 20, 0.9),
+    0 0 32px rgba(28, 20, 20, 0.65);
+  white-space: nowrap;
+}
+
+/* Декоративные «штучки» по бокам (линии, ромбики и веточки) */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--warm-sand);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.75));
+}
+
+.ornament-line {
+  width: clamp(45px, 9vw, 130px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #FFFFFF);
+}
+
+.ornament.right .ornament-line {
+  background: linear-gradient(90deg,#FFFFFF, transparent);
+}
+
+.ornament-diamond {
+  width: 6px;
+  height: 6px;
+  background-color:#FFFFFF;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.ornament svg {
+  width: 54px;
+  height: 22px;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+/* ОСНОВНАЯ СЕТКА */
+.hero-main {
+  max-width: 1280px;
+  width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+  padding: 24px 0;
+}
+
+/* Левый блок с текстом */
+.hero-text-block {
+  background: rgba(60, 47, 47, 0.34);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(203, 179, 155, 0.3);
+  border-radius: 20px;
+  padding: 42px;
+}
+
+.editorial-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--warm-sand);
+  margin-bottom: 18px;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  color: #FFFFFF;
+  margin-bottom: 22px;
+}
+
+.hero-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--dusty-rose);
+}
+
+.hero-subtitle {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  font-weight: 300;
+  color: var(--cream-paper);
+  max-width: 520px;
+  margin-bottom: 34px;
+}
+
+/* Кнопки */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn-primary {
+  background-color: var(--rosewood);
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 15px 34px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--rosewood);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(60, 47, 47, 0.35);
+}
+
+.btn-primary:hover {
+  background-color: #7c3f3b;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: rgba(247, 243, 238, 0.12);
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--warm-sand);
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--warm-sand);
+  color: var(--deep-espresso);
+}
+
+/* ПРАВАЯ ЖУРНАЛЬНАЯ КАРТОЧКА */
+.editorial-card {
+  background-color: var(--cream-paper);
+  color: var(--deep-espresso);
+  padding: 22px;
+  border-radius: 16px;
+  max-width: 340px;
+  margin-left: auto;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(203, 179, 155, 0.6);
+}
+
+.card-top-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--olive-moss);
+  margin-bottom: 12px;
+}
+
+.card-photo-wrapper {
+  width: 100%;
+  height: 210px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.card-photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.15);
+}
+
+.card-palette {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 26px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.card-caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: var(--deep-espresso);
+  text-align: center;
+}
+
+/* НИЖНЯЯ СТРОКА */
+.hero-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 14px;
+}
+
+.scroll-indicator {
+  color: #FFFFFF;
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* АДАПТИВ ДЛЯ ТЕЛЕФОНОВ */
+@media (max-width: 960px) {
+  .hero-main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .editorial-card {
+    margin: 0 auto;
+  }
+
+  .ornament-line {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .brand-logo {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .ornament {
+    display: none;
+  }
+}
